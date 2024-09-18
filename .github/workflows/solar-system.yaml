@@ -75,4 +75,4 @@ jobs:
     secrets:
       k8s-config: ${{ secrets.KUBECONFIG }}
     with:
-      registry: ${{ vars.REPLICAS }}
+      replicas: ${{ vars.REPLICAS }}
