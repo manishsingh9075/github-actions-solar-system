@@ -71,4 +71,4 @@ jobs:
             }}
   dev-deploy:
     needs: docker
-    uses: .github/workflows/reuse-deployment.yml@main
+    uses: .github/workflows/reuse-deployment.yaml
