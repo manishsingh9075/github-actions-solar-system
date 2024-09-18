@@ -2,6 +2,13 @@ name: Deployment - Resusable Workflow
 
 on: 
   workflow_call:
+    inputs:
+      replicas:
+        required: true
+        type: string
+    secrets:
+      k8s-config:
+        required: true
 
 jobs:
   reuse-deploy:
@@ -16,7 +23,7 @@ jobs:
       - uses: azure/k8s-set-context@v3
         with:
           method: kubeconfig
-          kubeconfig: '${{ secrets.KUBECONFIG }}'
+          kubeconfig: '${{ secrets.k8s-config }}'
       - run: kubectl version --short -o yaml
     # Below codes are added to complete the task
       - run: >
@@ -30,7 +37,7 @@ jobs:
           files: '["kubernetes/development/*.yaml"]'
         env:
           NAMESPACE: '${{ vars.NAMESPACE }}'
-          REPLICAS: '${{ vars.REPLICAS }}'
+          REPLICAS: '${{ input.replicas }}'
           IMAGE: >-
             ghcr.io/${{ github.repository_owner }}/solar-system:${{ github.sha
             }}

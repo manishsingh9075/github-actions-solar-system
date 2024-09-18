@@ -72,3 +72,7 @@ jobs:
   dev-deploy:
     needs: docker
     uses: ./.github/workflows/reuse-deployment.yaml
+    secrets:
+      k8s-config: ${{ secrets.KUBECONFIG }}
+    with:
+      registry: ${{ vars.REPLICAS }}
