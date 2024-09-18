@@ -71,4 +71,4 @@ jobs:
             }}
   dev-deploy:
     needs: docker
-    uses: manishsingh9075/github-actions-solar-system/.github/workflows/reuse-deployment.yaml@main
+    uses: manishsingh9075/github-actions-solar-system/.github/workflows/reuse-deployment.yaml@v1
