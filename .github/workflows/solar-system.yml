@@ -117,7 +117,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: setup kubernetes
-            uses: azure/setup-kubectl
+            uses: azure/setup-kubectl@v3
             with:
               version: 'v1.26.0'
           - name: set kubernetes context
